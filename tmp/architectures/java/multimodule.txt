@@ -1,0 +1,43 @@
+my-ddd-app/
+├── pom.xml                   <-- Parent POM, manages all modules
+
+├── domain/
+│   ├── pom.xml               <-- Domain module's POM (no dependencies on other modules)
+│   └── src/
+│       └── main/
+│           └── java/
+│               └── com/example/domain/
+│                   ├── model/
+│                   ├── repository/
+│                   └── service/
+
+├── application/
+│   ├── pom.xml               <-- Application module's POM (depends on 'domain')
+│   └── src/
+│       └── main/
+│           └── java/
+│               └── com/example/application/
+│                   ├── service/
+│                   ├── dto/
+│                   └── mappers/
+
+├── infrastructure/
+│   ├── pom.xml               <-- Infrastructure module's POM (depends on 'domain')
+│   └── src/
+│       └── main/
+│           └── java/
+│               └── com/example/infrastructure/
+│                   ├── persistence/
+│                   └── messaging/
+
+└── bootstrap/ (or launcher)
+    ├── pom.xml               <-- Bootstrap's POM (depends on all other modules)
+    └── src/
+        └── main/
+            ├── java/
+            │   └── com/example/
+            │       ├── Application.java      <-- The main Spring Boot class
+            │       └── interfaces/
+            │           └── web/
+            └── resources/
+                └── application.properties

@@ -1,0 +1,5 @@
+python-dotenv
+jupyter
+anthropic
+langgraph
+langchain-core

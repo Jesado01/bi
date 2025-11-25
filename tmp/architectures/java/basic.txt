@@ -1,0 +1,26 @@
+src/
+  main/
+    java/
+      com/
+        example/
+          application/
+            controllers/
+            services/
+            repositories/
+            models/
+              dto/
+              entities/
+            exceptions/
+            config/
+          Application.java
+    resources/
+      application.properties
+      static/
+      templates/
+  test/
+    java/
+      com/
+        example/
+          application/
+pom.xml
+README.md

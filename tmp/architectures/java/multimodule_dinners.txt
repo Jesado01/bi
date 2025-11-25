@@ -1,0 +1,16 @@
+ddd-multi-module-simplified/
+├── pom.xml                   (Parent POM)
+├── domain/
+│   ├── pom.xml
+│   └── src/main/java/com/example/ddd/
+├── application/
+│   ├── pom.xml
+│   └── src/main/java/com/example/ddd/
+└── infrastructure/
+    ├── pom.xml               
+    └── src/main/java/com/example/ddd/
+        ├── DddApplication.java      <-- Main class moved here
+        ├── infrastructure/          <-- Persistence, messaging, etc.
+        │   └── persistence/
+        └── presentation/            <-- API controllers moved here
+            └── api/

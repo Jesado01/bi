@@ -1,0 +1,656 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Rec Payment Order",
+    "contact": {},
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://${HOST_NAME}/system/payments/payment-order/v1/order-confirmation/retrieve",
+      "variables": {
+        "HOST_NAME": {
+          "default": "DefaultParameterValue"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/v1/order-confirmation/retrieve": {
+      "post": {
+        "tags": [
+          "v1"
+        ],
+        "summary": "V1OrderConfirmationRetrieve_POST",
+        "description": "Informa los servicios activos para el pago a partir de una categoria y un comercio.",
+        "operationId": "V1OrderConfirmationRetrieve_POST",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "applicationId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "ONBTCH"
+            }
+          },
+          {
+            "name": "channelId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "IN"
+            }
+          },
+          {
+            "name": "sessionId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "device",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "ONB"
+            }
+          },
+          {
+            "name": "language",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "portalId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "transactionId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "PRUEBA5"
+            }
+          },
+          {
+            "name": "ipAddress",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "10.0.0.0"
+            }
+          },
+          {
+            "name": "transactionDate",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "2023:02:24T09:23:06:486"
+            }
+          },
+          {
+            "name": "symmetricKey",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "userId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "recordsAmount",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "style": "simple",
+            "schema": {
+              "type": "number",
+              "example": 0
+            }
+          },
+          {
+            "name": "pagesAmount",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "style": "simple",
+            "schema": {
+              "type": "number",
+              "example": 0
+            }
+          },
+          {
+            "name": "pagesCurrentIndex",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "style": "simple",
+            "schema": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/retrieveOrderConfirmationRq"
+                  },
+                  {
+                    "example": {
+                      "orderConfirmation": {
+                        "partyReference": {
+                          "partyIdentification": {
+                            "mainPartyIdentificationType": "integer",      
+                            "mainIdentifierValue": "string"               
+                          }
+                        },
+                        "establishmentDirectoryReference": {
+                          "categoryCode": "string",                       
+                          "categoryDescription": "string",                
+                          "establishmentCode": "string",                  
+                          "banredEstablishmentCode": "string",            
+                          "establishmentName": "string",                  
+                          "establishmentDescription": "string",           
+                          "establishmentTaxId": "string"                  
+                        },
+                        "paymentOrderType": "string",                     
+                        "screenType": "string"                            
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/retrieveOrderConfirmationRs"
+                    },
+                    {
+                      "example": {
+                        "orderConfirmation": {
+                          "serviceDirectoryEntry": [
+                            {
+                              "serviceCode": "string",                     
+                              "banredServiceCode": "string",               
+                              "serviceDescription": "string",              
+                              "formId": "string",                          
+                              "imageUrl": "string",                        
+                              "paymentOrderType": "string",                
+                              "businessDayDate": "string",                 
+                              "uploadCutoffTime": "string",                
+                              "brandDirectoryEntry": [                    
+                                {
+                                  "entityCode": "string",                  
+                                  "brandCode": "string",                   
+                                  "isDinersAccount": "string"           
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                },
+                "example": {
+                  "statusCode": "400",
+                  "status": "FAILED",
+                  "message": [
+                    "Bad Request"
+                  ],
+                  "statusType": "",
+                  "transactionDate": "",
+                  "transactionTime": "",
+                  "providerCode": "",
+                  "description": "",
+                  "origin": ""
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_404"
+                },
+                "example": {
+                  "statusCode": "404",
+                  "status": "FAILED",
+                  "message": [
+                    "Not Found"
+                  ],
+                  "statusType": "",
+                  "transactionDate": "",
+                  "transactionTime": "",
+                  "providerCode": "",
+                  "description": "",
+                  "origin": ""
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_422"
+                },
+                "example": {
+                  "statusCode": "422",
+                  "status": "FAILED",
+                  "message": [
+                    "Unprocessable Content"
+                  ],
+                  "statusType": "",
+                  "transactionDate": "",
+                  "transactionTime": "",
+                  "providerCode": "",
+                  "description": "",
+                  "origin": ""
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                },
+                "example": {
+                  "statusCode": "500",
+                  "status": "FAILED",
+                  "message": [
+                    "Internal Server Error"
+                  ],
+                  "statusType": "",
+                  "transactionDate": "",
+                  "transactionTime": "",
+                  "providerCode": "",
+                  "description": "",
+                  "origin": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "commonErrorRs": {
+        "title": "commonErrorRs",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "string",
+            "description": "codigo de respuesta interno",
+            "example": "Example"
+          },
+          "message": {
+            "type": "array",
+            "description": "mensaje de resultado",
+            "example": [
+              "Example"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "type": "string",
+            "description": "estado de la peticion",
+            "example": "Example"
+          },
+          "statusType": {
+            "type": "string",
+            "description": "Tipo de respuesta interno",
+            "example": "Example"
+          },
+          "transactionDate": {
+            "type": "string",
+            "description": "Fecha Transacci\u00f3n",
+            "example": "Example"
+          },
+          "transactionTime": {
+            "type": "string",
+            "description": "Hora Transacci\u00f3n",
+            "example": "Example"
+          },
+          "providerCode": {
+            "type": "string",
+            "example": "Example"
+          },
+          "description": {
+            "type": "string",
+            "example": "Example"
+          },
+          "origin": {
+            "type": "string",
+            "example": "Example"
+          }
+        }
+      },
+      "retrieveOrderConfirmationRq": {
+        "title": "retrieveOrderConfirmationRq",
+        "type": "object",
+        "properties": {
+          "orderConfirmation": {
+            "type": "object",
+            "properties": {
+              "partyReference": {
+                "type": "object",
+                "properties": {
+                  "partyIdentification": {
+                    "type": "object",
+                    "properties": {
+                      "mainPartyIdentificationType": {
+                        "type": "integer",
+                        "description": "Tipo de identificación"
+                      },
+                      "mainIdentifierValue": {
+                        "type": "string",
+                        "description": "Número de identificación"
+                      }
+                    }
+                  }
+                }
+              },
+              "establishmentDirectoryReference": {
+                "type": "object",
+                "properties": {
+                  "categoryCode": {
+                    "type": "string",
+                    "description": "Código de categoría"
+                  },
+                  "categoryDescription": {
+                    "type": "string",
+                    "description": "Descripción de la categoría"
+                  },
+                  "establishmentCode": {
+                    "type": "string",
+                    "description": "Código del comercio"
+                  },
+                  "banredEstablishmentCode": {
+                    "type": "string",
+                    "description": "Código Banred del comercio"
+                  },
+                  "establishmentName": {
+                    "type": "string",
+                    "description": "Nombre del comercio"
+                  },
+                  "establishmentDescription": {
+                    "type": "string",
+                    "description": "Descripción del comercio"
+                  },
+                  "establishmentTaxId": {
+                    "type": "string",
+                    "description": "RUC del comercio"
+                  }
+                }
+              },
+              "paymentOrderType": {
+                "type": "string",
+                "description": "Tipo de pago (opcional)"
+              },
+              "screenType": {
+                "type": "string",
+                "description": "Tipo de pantalla (opcional)"
+              }
+            }
+          }
+        }
+      },
+      "retrieveOrderConfirmationRs": {
+        "title": "retrieveOrderConfirmationRs",
+        "type": "object",
+        "properties": {
+          "orderConfirmation": {
+            "type": "object",
+            "properties": {
+              "serviceList": {
+                "type": "array",
+                "description": "Lista de servicios activos para el pago",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "serviceCode": {
+                      "type": "string",
+                      "description": "Código del servicio"
+                    },
+                    "banredServiceCode": {
+                      "type": "string",
+                      "description": "Código Banred del servicio"
+                    },
+                    "serviceDescription": {
+                      "type": "string",
+                      "description": "Descripción del servicio"
+                    },
+                    "formId": {
+                      "type": "string",
+                      "description": "ID del formulario"
+                    },
+                    "imageUrl": {
+                      "type": "string",
+                      "description": "URL de la imagen"
+                    },
+                    "paymentType": {
+                      "type": "string",
+                      "description": "Tipo de pago"
+                    },
+                    "businessDayDate": {
+                      "type": "string",
+                      "description": "Fecha día hábil"
+                    },
+                    "maxFileUploadTime": {
+                      "type": "string",
+                      "description": "Hora máxima para cargar archivo"
+                    },
+                    "brandList": {
+                      "type": "array",
+                      "description": "Lista de marcas asociadas al servicio",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "entityCode": {
+                            "type": "string",
+                            "description": "Código de la entidad"
+                          },
+                          "brandCode": {
+                            "type": "string",
+                            "description": "Código de la marca"
+                          },
+                          "isDinersAccount": {
+                            "type": "string",
+                            "description": "Indica si es cuenta Diners"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "inline_response_400": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/commonErrorRs"
+          },
+          {
+            "example": {
+              "statusCode": "400",
+              "status": "FAILED",
+              "message": [
+                "Bad Request"
+              ],
+              "statusType": "",
+              "transactionDate": "",
+              "transactionTime": "",
+              "providerCode": "",
+              "description": "",
+              "origin": ""
+            }
+          }
+        ]
+      },
+      "inline_response_404": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/commonErrorRs"
+          },
+          {
+            "example": {
+              "statusCode": "404",
+              "status": "FAILED",
+              "message": [
+                "Not Found"
+              ],
+              "statusType": "",
+              "transactionDate": "",
+              "transactionTime": "",
+              "providerCode": "",
+              "description": "",
+              "origin": ""
+            }
+          }
+        ]
+      },
+      "inline_response_422": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/commonErrorRs"
+          },
+          {
+            "example": {
+              "statusCode": "422",
+              "status": "FAILED",
+              "message": [
+                "Unprocessable Content"
+              ],
+              "statusType": "",
+              "transactionDate": "",
+              "transactionTime": "",
+              "providerCode": "",
+              "description": "",
+              "origin": ""
+            }
+          }
+        ]
+      },
+      "inline_response_500": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/commonErrorRs"
+          },
+          {
+            "example": {
+              "statusCode": "500",
+              "status": "FAILED",
+              "message": [
+                "Internal Server Error"
+              ],
+              "statusType": "",
+              "transactionDate": "",
+              "transactionTime": "",
+              "providerCode": "",
+              "description": "",
+              "origin": ""
+            }
+          }
+        ]
+      }
+    }
+  }
+}
